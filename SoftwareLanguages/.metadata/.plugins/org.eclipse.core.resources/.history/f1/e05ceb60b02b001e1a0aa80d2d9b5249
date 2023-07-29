@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+public class SubSoftwareLanguageManager {
+
+}

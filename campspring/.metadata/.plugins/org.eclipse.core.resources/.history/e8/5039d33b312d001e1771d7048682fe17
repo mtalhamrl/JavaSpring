@@ -1,0 +1,37 @@
+package kodlama.io.rentACar.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlama.io.rentACar.business.abstracts.ModelService;
+import kodlama.io.rentACar.business.requests.CreateModelRequest;
+import kodlama.io.rentACar.business.responses.GetAllModelsResponse;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+@RestController
+@RequestMapping("/api/models")
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class ModelsController {
+	private  ModelService modelService;
+	
+	@Autowired
+	public List<GetAllModelsResponse> getAll(){
+		return modelService.getAll();
+	}
+	@PostMapping()
+	
+	public void add(@RequestBody CreateModelRequest createModelRequest) {
+		this.modelService.add(createModelRequest);
+	}
+
+
+}
+ 

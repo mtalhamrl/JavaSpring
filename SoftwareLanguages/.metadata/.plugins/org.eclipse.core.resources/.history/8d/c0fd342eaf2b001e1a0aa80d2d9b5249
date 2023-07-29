@@ -1,0 +1,9 @@
+package SoftwareLanguages.Languages.business.abstracts;
+
+import java.util.List;
+
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+
+public interface SoftwareLanguageService {
+	List<CreateSoftwareLanguages> getAll();
+}

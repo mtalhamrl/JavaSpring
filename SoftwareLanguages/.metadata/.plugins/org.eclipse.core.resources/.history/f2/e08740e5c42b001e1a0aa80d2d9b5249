@@ -1,0 +1,19 @@
+package SoftwareLanguages.Languages.webApi.concretes;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import SoftwareLanguages.Languages.business.abstracts.SubSoftwareLanguageService;
+
+@RestController
+@RequestMapping("/api/subLanguages")
+public class SubSoftwareLanguagesController {
+
+	private SubSoftwareLanguageService subSoftwareLanguageService;
+
+	public SubSoftwareLanguagesController(SubSoftwareLanguageService subSoftwareLanguageService) {
+		this.subSoftwareLanguageService = subSoftwareLanguageService;
+	}
+	
+	
+}

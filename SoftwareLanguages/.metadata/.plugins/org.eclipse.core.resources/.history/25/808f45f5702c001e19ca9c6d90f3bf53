@@ -1,0 +1,51 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import SoftwareLanguages.Languages.business.abstracts.SubSoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSubSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSubSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.dataAccess.SubSoftwareLanuagesRepository;
+import SoftwareLanguages.Languages.entities.SubSoftwareLanguage;
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
+public class SubSoftwareLanguageManager implements SubSoftwareLanguageService{
+	private SubSoftwareLanuagesRepository subSoftwareLanuagesRepository;
+	
+	
+
+	@Override
+	public List<GetAllSubSoftwareLanguagesResponse> getAll() {
+		List<SubSoftwareLanguage> subSoftwareLanguages = subSoftwareLanuagesRepository.findAll();
+		List<GetAllSubSoftwareLanguagesResponse> getAllSubSoftwareLanguagesResponses=
+				new ArrayList<GetAllSubSoftwareLanguagesResponse>();
+		for(SubSoftwareLanguage subSoftwareLanguage2 : subSoftwareLanguages) {
+			GetAllSubSoftwareLanguagesResponse responseItem= new GetAllSubSoftwareLanguagesResponse();
+			responseItem.setId(subSoftwareLanguage2.getId());
+			responseItem.setName(subSoftwareLanguage2.getSubName());
+			getAllSubSoftwareLanguagesResponses.add(responseItem);
+		}
+		return getAllSubSoftwareLanguagesResponses;
+				
+	}
+	@Override
+	public void add(CreateSubSoftwareLanguages CreateSubSoftwareLanguages) {
+		SubSoftwareLanguage subSoftwareLanguage = new SubSoftwareLanguage();
+		subSoftwareLanguage.setSubName(CreateSubSoftwareLanguages.getSubName());
+		this.subSoftwareLanuagesRepository.save(subSoftwareLanguage);
+	}
+
+	@Override
+	public void update(CreateSubSoftwareLanguages CreateSubSoftwareLanguages) {
+		
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.subSoftwareLanuagesRepository.deleteById(id);
+		
+	}
+
+}

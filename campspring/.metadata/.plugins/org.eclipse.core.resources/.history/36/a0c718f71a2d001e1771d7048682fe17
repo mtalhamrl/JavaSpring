@@ -1,0 +1,19 @@
+package kodlama.io.rentACar.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kodlama.io.rentACar.business.abstracts.BrandService;
+import kodlama.io.rentACar.business.abstracts.ModelService;
+import kodlama.io.rentACar.business.responses.GetAllModelsResponse;
+import lombok.AllArgsConstructor;
+@RequestMapping("/api/models")
+@AllArgsConstructor
+public class ModelController {
+	private ModelService modelService;
+	public List<GetAllModelsResponse> getAll(){
+		return modelService.getAll();
+	}
+
+}

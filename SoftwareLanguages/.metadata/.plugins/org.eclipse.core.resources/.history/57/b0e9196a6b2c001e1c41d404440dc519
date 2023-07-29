@@ -1,0 +1,6 @@
+package SoftwareLanguages.Languages.core.utilities.mappers;
+
+public interface ModelMapperService {
+	
+	
+}

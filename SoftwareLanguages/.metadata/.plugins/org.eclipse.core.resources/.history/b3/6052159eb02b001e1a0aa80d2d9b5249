@@ -1,0 +1,35 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.List;
+
+import SoftwareLanguages.Languages.business.abstracts.SubSoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSubSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSubSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.dataAccess.SubSoftwareLanguagesRepository;
+
+public class SubSoftwareLanguageManager implements SubSoftwareLanguageService{
+	private SubSoftwareLanguagesRepository softwareSubLanguagesRepository;
+	
+	@Override
+	public List<GetAllSubSoftwareLanguagesResponse> getAll() {
+		
+		return null;
+	}
+
+	@Override
+	public void add(CreateSubSoftwareLanguages CreateSubSoftwareLanguages) {
+		
+	}
+
+	@Override
+	public void update(CreateSubSoftwareLanguages CreateSubSoftwareLanguages) {
+		
+		
+	}
+
+	@Override
+	public void delete(CreateSubSoftwareLanguages CreateSubSoftwareLanguages) {
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package SoftwareLanguages.Languages.webApi.concretes;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+public class SoftwareLanguagesController {
+	@RestController
+	@RequestMapping("/api/languages")
+}

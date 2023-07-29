@@ -1,0 +1,19 @@
+package SoftwareLanguages.Languages.business.abstracts;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import SoftwareLanguages.Languages.business.requests.CreateSubSoftwareLanguages;
+import SoftwareLanguages.Languages.business.requests.UpdateSubSoftwareLanguagesRequest;
+import SoftwareLanguages.Languages.business.responses.GetAllSubSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.business.responses.GetByIdSubSoftwareLanguagesResponse;
+@Service
+public interface SubSoftwareLanguageService {
+	List<GetAllSubSoftwareLanguagesResponse> getAllsub();
+	GetByIdSubSoftwareLanguagesResponse getBySubId(int id);
+	void add(CreateSubSoftwareLanguages createSubSoftwareLanguages);
+	void update(UpdateSubSoftwareLanguagesRequest updateSubSoftwareLanguagesRequest);
+	void delete(int id);
+
+}

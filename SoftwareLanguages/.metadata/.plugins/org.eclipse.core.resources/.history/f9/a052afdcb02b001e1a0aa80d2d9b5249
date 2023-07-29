@@ -1,0 +1,41 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.List;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.dataAccess.SoftwareLanguagesRepository;
+
+public class SoftwareLanguageManager implements SoftwareLanguageService{
+	private SoftwareLanguagesRepository softwareLanguagesRepository;
+	
+	public SoftwareLanguageManager(SoftwareLanguagesRepository softwareLanguagesRepository) {
+		this.softwareLanguagesRepository = softwareLanguagesRepository;
+	}
+
+	@Override
+	public List<GetAllSoftwareLanguagesResponse> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(CreateSoftwareLanguages createSoftwareLanguages) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(CreateSoftwareLanguages createSoftwareLanguages) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(CreateSoftwareLanguages createSoftwareLanguages) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

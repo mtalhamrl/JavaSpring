@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.business.abstracts;
+
+public interface SubSoftwareLanguageService {
+
+}

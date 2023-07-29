@@ -1,0 +1,9 @@
+package SoftwareLanguages.Languages.dataAccess;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import SoftwareLanguages.Languages.entities.SoftwareLanguages;
+
+public interface SoftwareLanguagesRepository extends JpaRepository<SoftwareLanguages, Integer>{
+
+}

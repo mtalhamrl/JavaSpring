@@ -1,0 +1,25 @@
+package SoftwareLanguages.Languages.webApi.concretes;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/languages")
+public class SoftwareLanguagesController {
+	private SoftwareLanguageService softwareLanguageService;
+
+	public SoftwareLanguagesController(SoftwareLanguageService softwareLanguageService) {
+		this.softwareLanguageService = softwareLanguageService;
+	}
+	@GetMapping("/getall")
+	public List<GetAllSoftwareLanguagesResponse> getAll(){
+		return softwareLanguageService.getAll();
+	}
+	
+}

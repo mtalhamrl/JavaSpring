@@ -1,0 +1,45 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.dataAccess.SoftwareLanguagesRepository;
+import SoftwareLanguages.Languages.entities.SoftwareLanguages;
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
+public class SoftwareLanguageManager implements SoftwareLanguageService{
+	private SoftwareLanguagesRepository softwareLanguagesRepository;
+	
+	
+
+	@Override
+	public List<GetAllSoftwareLanguagesResponse> getAll() {
+		List<SoftwareLanguages> softwareLanguages= softwareLanguagesRepository.findAll();
+		List<GetAllSoftwareLanguagesResponse> getAllSoftwareLanguagesResponses =           
+	}
+				
+	
+
+	@Override
+	public void add(CreateSoftwareLanguages createSoftwareLanguages) {
+		SoftwareLanguages softwareLanguages = new SoftwareLanguages();
+		softwareLanguages.setName(createSoftwareLanguages.getName());
+		this.softwareLanguagesRepository.save(softwareLanguages);
+	}
+
+	@Override
+	public void update(CreateSoftwareLanguages createSoftwareLanguages) {
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.softwareLanguagesRepository.deleteById(id);
+		
+	}
+
+}

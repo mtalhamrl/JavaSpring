@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.webApi.concretes;
+
+public class SoftwareLanguagesController {
+
+}

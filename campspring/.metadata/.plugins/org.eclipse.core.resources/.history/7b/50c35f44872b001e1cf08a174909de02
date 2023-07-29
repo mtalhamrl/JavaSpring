@@ -1,0 +1,25 @@
+package kodlama.io.rentACar.entities.concretes;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Table(name="brands")
+@Data
+@AllArgsConstructor
+@Entity
+
+public class Brand {
+	private int id;
+	private String name;
+
+	public Brand() {
+
+	}
+
+	
+
+	
+
+}

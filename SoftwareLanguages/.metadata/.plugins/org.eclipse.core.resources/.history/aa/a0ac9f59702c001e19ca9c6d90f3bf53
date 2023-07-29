@@ -1,0 +1,42 @@
+package SoftwareLanguages.Languages.webApi.concretes;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@RestController
+@RequestMapping("/api/languages")
+public class SoftwareLanguagesController {
+	private SoftwareLanguageService softwareLanguageService;
+//All args constructor kullansaydım burdaki constructoruma gerek kalmayacaktı..!
+	public SoftwareLanguagesController(SoftwareLanguageService softwareLanguageService) {
+		this.softwareLanguageService = softwareLanguageService;
+	}
+	@GetMapping("/getall")
+	public List<GetAllSoftwareLanguagesResponse> getAll(){
+		return softwareLanguageService.getAll();
+	}
+	@PostMapping("/add")
+	public void add(@RequestBody CreateSoftwareLanguages createSoftwareLanguages) {
+		this.softwareLanguageService.add(createSoftwareLanguages);
+	}
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		this.softwareLanguageService.delete(id);
+	}
+	@PutMapping()
+	public void update(CreateSoftwareLanguages createSoftwareLanguages) {
+		this.softwareLanguageService.update(createSoftwareLanguages);
+	}
+}

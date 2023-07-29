@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.business.responses;
+
+public class GetByIdSubSoftwareLanguagesResponse {
+
+}

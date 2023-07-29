@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.business.requests;
+
+public class CreateSoftwareLanguages {
+
+}

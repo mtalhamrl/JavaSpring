@@ -1,0 +1,53 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.dataAccess.SoftwareLanguagesRepository;
+import SoftwareLanguages.Languages.entities.SoftwareLanguages;
+
+public class SoftwareLanguageManager implements SoftwareLanguageService{
+	private SoftwareLanguagesRepository softwareLanguagesRepository;
+	
+	public SoftwareLanguageManager(SoftwareLanguagesRepository softwareLanguagesRepository) {
+		this.softwareLanguagesRepository = softwareLanguagesRepository;
+	}
+
+	@Override
+	public List<GetAllSoftwareLanguagesResponse> getAll() {
+		List<SoftwareLanguages> softwareLanguages= softwareLanguagesRepository.findAll();
+		List<GetAllSoftwareLanguagesResponse> getAllSoftwareLanguagesResponses =
+				new ArrayList<GetAllSoftwareLanguagesResponse>();
+		for(SoftwareLanguages softwareLanguages2 : softwareLanguages) {
+			GetAllSoftwareLanguagesResponse responseItem = new GetAllSoftwareLanguagesResponse();
+			responseItem.setId(softwareLanguages2.getId());
+			responseItem.setName(softwareLanguages2.getName());
+			getAllSoftwareLanguagesResponses.add(responseItem);
+		}
+		return getAllSoftwareLanguagesResponses;
+	}
+
+	@Override
+	public void add(CreateSoftwareLanguages createSoftwareLanguages) {
+		SoftwareLanguages softwareLanguages = new SoftwareLanguages();
+		softwareLanguages.setName(createSoftwareLanguages.getName());
+		this.softwareLanguagesRepository.save(softwareLanguages);
+	}
+
+	@Override
+	public void update(CreateSoftwareLanguages createSoftwareLanguages) {
+		SoftwareLanguages softwareLanguages = new SoftwareLanguages();
+	
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.softwareLanguagesRepository.deleteById(id);
+		
+	}
+
+}

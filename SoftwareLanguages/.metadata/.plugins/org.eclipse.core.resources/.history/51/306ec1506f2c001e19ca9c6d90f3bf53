@@ -1,0 +1,49 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import SoftwareLanguages.Languages.business.abstracts.SoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSoftwareLanguages;
+import SoftwareLanguages.Languages.business.responses.GetAllSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.core.utilities.mappers.ModelMapperService;
+import SoftwareLanguages.Languages.dataAccess.SoftwareLanguagesRepository;
+import SoftwareLanguages.Languages.entities.SoftwareLanguages;
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
+public class SoftwareLanguageManager implements SoftwareLanguageService{
+	private SoftwareLanguagesRepository softwareLanguagesRepository;
+	private ModelMapperService modelMapperService;
+	
+	
+
+	@Override
+	public List<GetAllSoftwareLanguagesResponse> getAll() {
+		List<SoftwareLanguages> softwareLanguages= softwareLanguagesRepository.findAll();
+		List<GetAllSoftwareLanguagesResponse> getAllSoftwareLanguagesResponses = softwareLanguages.stream()
+				.map(softwarelanguages->this.modelMapperService.forResponse()
+				.map(softwarelanguages,GetAllSoftwareLanguagesResponse.class)).collect(Collectors.toList());
+				return getAllSoftwareLanguagesResponses;
+	}
+				
+	
+
+	@Override
+	public void add(CreateSoftwareLanguages createSoftwareLanguages) {
+		SoftwareLanguages softwareLanguages = this.modelMapperService.forRequest()
+										.map(createSoftwareLanguages, SoftwareLanguages.class);
+		this.softwareLanguagesRepository.save(softwareLanguages);
+	}
+
+	@Override
+	public void update(CreateSoftwareLanguages createSoftwareLanguages) {
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.softwareLanguagesRepository.deleteById(id);
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package SoftwareLanguages.Languages.core.utilities.mappers;
+
+public class ModelMapperManager {
+
+}

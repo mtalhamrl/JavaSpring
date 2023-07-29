@@ -1,0 +1,56 @@
+package SoftwareLanguages.Languages.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import SoftwareLanguages.Languages.business.abstracts.SubSoftwareLanguageService;
+import SoftwareLanguages.Languages.business.requests.CreateSubSoftwareLanguages;
+import SoftwareLanguages.Languages.business.requests.UpdateSubSoftwareLanguagesRequest;
+import SoftwareLanguages.Languages.business.responses.GetAllSubSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.business.responses.GetByIdSubSoftwareLanguagesResponse;
+import SoftwareLanguages.Languages.core.utilities.mappers.ModelMapperService;
+import SoftwareLanguages.Languages.dataAccess.SubSoftwareLanuagesRepository;
+import SoftwareLanguages.Languages.entities.SubSoftwareLanguage;
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
+public class SubSoftwareLanguageManager implements SubSoftwareLanguageService{
+	private SubSoftwareLanuagesRepository subSoftwareLanuagesRepository;
+	private ModelMapperService modelMapperService;
+	
+
+	@Override
+	public List<GetAllSubSoftwareLanguagesResponse> getAll() {
+		List<SubSoftwareLanguage> subSoftwareLanguages = subSoftwareLanuagesRepository.findAll();
+		List<GetAllSubSoftwareLanguagesResponse> getAllSubSoftwareLanguagesResponses= subSoftwareLanguages.stream()
+				.map(subsoftwareLanguages->this.modelMapperService.forResponse()
+				.map(subSoftwareLanguages, GetAllSubSoftwareLanguagesResponse.class)).collect(Collectors.toList());
+		return getAllSubSoftwareLanguagesResponses;
+								
+	}
+	@Override
+	public void add(CreateSubSoftwareLanguages createSubSoftwareLanguages) {
+		SubSoftwareLanguage subSoftwareLanguage = this.modelMapperService.forRequest()
+						.map(CreateSubSoftwareLanguages, l)
+
+		this.subSoftwareLanuagesRepository.save(subSoftwareLanguage);
+	}
+
+	@Override
+	public void update(UpdateSubSoftwareLanguagesRequest updateSubSoftwareLanguagesRequest) {
+		
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.subSoftwareLanuagesRepository.deleteById(id);
+		
+	}
+	@Override
+	public GetByIdSubSoftwareLanguagesResponse getBySubId(int id) {
+		
+		return null;
+	}
+
+}
